@@ -1,43 +1,52 @@
-# Astro Starter Kit: Minimal
+# Generador de Secuencias
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Este proyecto es un **generador de secuencias numéricas** desarrollado en **React**. Permite al usuario seleccionar un tipo de secuencia y la cantidad de números que desea generar.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-## 🚀 Project Structure
+## Tipos de Secuencias y su Lógica
 
-Inside of your Astro project, you'll see the following folders and files:
+### 1. Pares
+- **Lógica:** Se generan números que son múltiplos de 2.  
+- **Fórmula:** `número = índice * 2`  
+- **Ejemplo:** Si la cantidad es 5 → `[0, 2, 4, 6, 8]`  
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+### 2. Impares
+- **Lógica:** Se generan números que son impares, empezando desde 1.  
+- **Fórmula:** `número = índice * 2 + 1`  
+- **Ejemplo:** Si la cantidad es 5 → `[1, 3, 5, 7, 9]`  
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### 3. Múltiplos de 3
+- **Lógica:** Se generan números que son múltiplos de 3, empezando desde 0.  
+- **Fórmula:** `número = índice * 3`  
+- **Ejemplo:** Si la cantidad es 5 → `[0, 3, 6, 9, 12]`  
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+---
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Cómo Funciona el Programa
 
-## 🧞 Commands
+1. **El usuario selecciona** el tipo de secuencia: Pares, Impares o Múltiplos de 3.  
+2. **El usuario ingresa** la cantidad de elementos a generar.  
+3. Al presionar el **botón "Aplicar cambios"**, el programa:
+   - Evalúa el tipo de secuencia con un **`if`**.
+   - Recorre cada índice desde 0 hasta la cantidad deseada usando un **ciclo `for`**.
+   - Calcula cada número según la **fórmula correspondiente**.
+   - Agrega cada número al **array** `resultado`.
+4. Finalmente, muestra la secuencia en pantalla de forma visual.
 
-All commands are run from the root of the project, from a terminal:
+---
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Ejemplo de Uso
 
-## 👀 Want to learn more?
+- **Tipo:** Múltiplos de 3  
+- **Cantidad:** 6  
+- **Resultado:** `[0, 3, 6, 9, 12, 15]`
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+
+## Conceptos Aplicados
+
+- **Ciclos (`for`)** → Para repetir la generación de cada número según la cantidad.  
+- **Condiciones (`if`)** → Para decidir qué tipo de secuencia generar.  
+
+---
