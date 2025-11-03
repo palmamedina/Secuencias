@@ -1,7 +1,7 @@
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 
 function SequenceGenerator() {
-  const [tipo, setTipo] = useState ("pares");
+  const [tipo, setTipo] = useState("pares");
   const [cantidad, setCantidad] = useState(5);
   const [numeros, setNumeros] = useState([0, 2, 4, 6, 8]);
 
@@ -12,9 +12,16 @@ function SequenceGenerator() {
       for (let i = 0; i < cantidad; i++) resultado.push(i * 2);
     } else if (tipo === "impares") {
       for (let i = 0; i < cantidad; i++) resultado.push(i * 2 + 1);
-    } else {
-      // Múltiplos de 3
+    } else if (tipo === "multiplos3") {
       for (let i = 0; i < cantidad; i++) resultado.push(i * 3);
+    } else if (tipo === "fibonacci") {
+      let a = 0, b = 1;
+      for (let i = 0; i < cantidad; i++) {
+        resultado.push(a);
+        [a, b] = [b, a + b];
+      }
+    } else {
+      for (let i = 0; i < cantidad; i++) resultado.push(i);
     }
 
     setNumeros(resultado);
@@ -30,6 +37,7 @@ function SequenceGenerator() {
           <option value="pares">Pares</option>
           <option value="impares">Impares</option>
           <option value="multiplos3">Múltiplos de 3</option>
+          <option value="fibonacci">Fibonacci</option> 
         </select>
       </div>
 
